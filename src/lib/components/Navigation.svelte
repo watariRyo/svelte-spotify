@@ -50,3 +50,60 @@
 		</div>
 	</nav>
 </div>
+
+<style lang="scss">
+	.nav-content {
+		.logo {
+			max-width: 100%;
+			widows: 130px;
+		}
+		.nav-content-inner {
+			padding: 20px;
+			min-width: var(--sidebar-width);
+			background-color: var(--sidebar-color);
+			height: 100vh;
+			overflow: auto;
+			display: none;
+			ul {
+				padding: 0;
+				margin: 20px 0 0;
+				list-style: none;
+				li {
+					&.active {
+						a {
+							opacity: 1;
+						}
+					}
+					a {
+						display: flex;
+						align-items: center;
+						text-decoration: none;
+						color: var(--text-color);
+						font-size: functions.toRem(14);
+						font-weight: 500;
+						padding: 5px;
+						margin: 10px 0;
+						opacity: 0.7;
+						transition: opacity 0.2s;
+						&:hover,
+						&:focus {
+							opacity: 1;
+						}
+						:global(svg) {
+							margin-right: 12px;
+						}
+					}
+				}
+			}
+		}
+		&.desktop {
+			position: sticky;
+			top: 0;
+			.nav-content-inner {
+				@include breakpoint.up('md') {
+					display: block;
+				}
+			}
+		}
+	}
+</style>
